@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Expense Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .balance {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      flex: 1;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      color: white;
+    }
+
+    .add {
+      background-color: #2ecc71;
+    }
+
+    .subtract {
+      background-color: #e74c3c;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: white;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-left: 5px solid;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .income {
+      border-color: #2ecc71;
+    }
+
+    .expense {
+      border-color: #e74c3c;
+    }
+
+    .remove {
+      cursor: pointer;
+      color: #888;
+      margin-left: 10px;
+    }
+
+    .remove:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Expense Tracker</h1>
+  <div class="balance" id="balance">Balance: $0</div>
+
+  <div class="form">
+    <input type="text" id="desc" placeholder="Description" />
+    <input type="number" id="amount" placeholder="Amount" />
+  </div>
+  <div class="form">
+    <button class="add" onclick="addTransaction('income')">Add Income</button>
+    <button class="subtract" onclick="addTransaction('expense')">Add Expense</button>
+  </div>
+
+  <ul id="transactions"></ul>
+
+  <script>
+    let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+    function saveAndRender() {
+      localStorage.setItem('transactions', JSON.stringify(transactions));
+      render();
+    }
+
+    function addTransaction(type) {
+      const desc = document.getElementById('desc').value.trim();
+      const amount = parseFloat(document.getElementById('amount').value);
+
+      if (!desc || isNaN(amount)) {
+        alert("Please enter both a description and a valid amount.");
+        return;
+      }
+
+      transactions.push({
+        id: Date.now(),
+        desc,
+        amount: type === 'income' ? amount : -amount
+      });
+
+      document.getElementById('desc').value = '';
+      document.getElementById('amount').value = '';
+      saveAndRender();
+    }
+
+    function deleteTransaction(id) {
+      transactions = transactions.filter(t => t.id !== id);
+      saveAndRender();
+    }
+
+    function render() {
+      const list = document.getElementById('transactions');
+      list.innerHTML = '';
+      let balance = 0;
+
+      transactions.forEach(t => {
+        const li = document.createElement('li');
+        li.className = t.amount >= 0 ? 'income' : 'expense';
+        li.innerHTML = `
+          <span>${t.desc}</span>
+          <span>
+            $${Math.abs(t.amount).toFixed(2)}
+            <span class="remove" onclick="deleteTransaction(${t.id})">✕</span>
+          </span>
+        `;
+        balance += t.amount;
+        list.appendChild(li);
+      });
+
+      document.getElementById('balance').textContent = 'Balance: $' + balance.toFixed(2);
+    }
+
+    render();
+  </script>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="scratch.html" style="text-decoration: none; color: #3498db;">← Back to Scratch Page</a>
+  </div>
+  
+</body>
+</html>

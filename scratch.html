@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Why I Love Photography</title>
+  <link rel="stylesheet" href="css/scratch.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <a href="#gallery">Gallery</a> |
+    <a href="#video">Filming a Music Video</a> |
+    <a href="webapp.html">Expenses Tracker Webapp</a> |
+    <a href="Resume Project.html">Resume Page</a>
+  </div>
+
+  <!-- Hero Header Section -->
+  <div class="hero" id="top">
+    <h1>Why I Love Photography</h1>
+    <p>Capturing timeless moments through a lens.</p>
+  </div>
+
+  <!-- About Section -->
+  <div class="section" id="journey">
+    <h2>My Journey Into Photography</h2>
+    <p>
+      Photography allows me to freeze time, capture emotion, and tell stories through light and composition.
+    </p>
+  
+    <div class="list-wrapper">
+      <div class="list-column">
+        <h3>What I love about photography:</h3>
+        <ol>
+    <li>Lighting
+        <ul>
+            <li>Golden hour light</li>
+            <li>Soft window light</li>
+        </ul>
+    </li>
+    <li>Capturing Emotion</li>
+    <li>Human Connection</li>
+</ol>
+      </div>
+  
+      <div class="list-column">
+        <h3>What I enjoy most when shooting:</h3>
+        <ul>
+          <li>Challenging lighting situations</li>
+          <li>Fast-moving wedding moments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+<!-- Image Gallery Section -->
+<div id="gallery" class="section">
+    <h2>Featured Work</h2>
+  
+    <!-- Image 1 -->
+    <img src="/assets/img/CarmenandBenRings.jpg" alt="Wedding Couple" class="featured-img" />
+    
+    <!-- Image 2 -->
+    <img src="/assets/img/AllisonandBenB&W.jpg" alt="Outdoor Couple" class="featured-img" />
+    
+    <!-- Image 3 -->
+    <img src="/assets/img/ColeFlying.jpg" alt="Groom Toss" class="featured-img" />
+    
+    <!-- Image 4 -->
+    <img src="/assets/img/AllisonandBenSunset.jpg" alt="Couple in Nature" class="featured-img" />
+
+    <!-- Image 6 -->
+    <img src="/assets/img/AubreyandColeDancing.jpg" alt="Couple Dancing" class="featured-img" />
+
+    <!-- Image 7 -->
+    <img src="/assets/img/ColeandAubreyRain.jpg" alt="Couple in Rain" class="featured-img" />
+</div>
+
+  
+
+<!-- Video Section -->
+<div class="section" id="video">
+    <h2>Filming a Music Video</h2>
+    <p class="video-text">My interests expand past wedding photography; here is a music video that I helped film for my friend.</p>
+    <div class="video-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/0xtNqys6cZ4?si=x9zKksk02QPh85gX" 
+      title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div class="section" id="tableau">
+    <h2>Photography Gear and Settings Comparison</h2>
+    <div class="tableauPlaceholder" id="viz1745096711336" style="position: relative; width: 100%; height: 600px;">
+      <noscript>
+        <a href="#">
+          <img alt="Photography" src="https://public.tableau.com/static/images/Ph/Photography/Photography/1_rss.png" style="border: none" />
+        </a>
+      </noscript>
+      <object class="tableauViz" style="display:none;">
+        <param name="host_url" value="https://public.tableau.com/" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="Photography/Photography" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="no" />
+        <param name="static_image" value="https://public.tableau.com/static/images/Ph/Photography/Photography/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+      </object>
+    </div>
+</div>
+
+<!-- Tableau Embed Script -->
+<script type="text/javascript">
+    var divElement = document.getElementById('viz1745096711336');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    var aspectRatio = 0.75; // You might need to adjust this based on your Tableau dashboard's aspect ratio
+  
+    function setVizSize() {
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * aspectRatio) + 'px';
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * aspectRatio) + 'px';
+      } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * aspectRatio) + 'px'; // Use aspect ratio for smaller screens too
+      }
+    }
+  
+    setVizSize(); // Call on initial load
+  
+    // Call again if the window is resized (for responsiveness)
+    window.addEventListener('resize', setVizSize);
+  
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+
+ <!-- Footer -->
+<div class="footer">
+  <p><a href="#top" class="back-to-top">Back to Top</a></p>
+</div>
+
+
+</body>
+</html>
